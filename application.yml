@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://julianagarzond:lab10@lab10.mn5b4.mongodb.net/lab10?retryWrites=true&w=majority
