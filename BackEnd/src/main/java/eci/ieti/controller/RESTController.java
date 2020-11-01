@@ -47,30 +47,27 @@ public class RESTController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-
-
     }
 
     @CrossOrigin("*")
     @PostMapping("/files")
     public String handleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) throws IOException {
-
-        //TODO implement method
-        return null;
+            gridFsTemplate.store(file.getInputStream(), file.getOriginalFilename(), file.getContentType());
+            return null;
     }
 
     @CrossOrigin("*")
     @PostMapping("/todo")
-    public Todo createTodo(@RequestBody Todo todo) {
-        //TODO implement method
-        return null;
+    public Todo createTodo(@RequestBody Todo todo){
+
+        return todoRepository.save(todo);
     }
 
     @CrossOrigin("*")
     @GetMapping("/todo")
     public List<Todo> getTodoList() {
-        //TODO implement method
-        return null;
+
+        return todoRepository.findAll();
     }
 
 }
